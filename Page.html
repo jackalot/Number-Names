@@ -4,6 +4,107 @@
 	<title>Number Names</title>
 </head>
 <body>
+<input type="text" id="limiter" value="Amount of number names"> </input>
+<button class="Send" onclick="GetSize()">Send Number number names</button>
+<p id= "Replace" > text </p>
+<script type="text/javascript">
+	function GetSize()
+	{
+		input = document.getElementById("limiter").value;
+		Limit = parseInt(input);
+		let values = [];
+		for(i = 0; i < Limit; i++)
+		{	
+			values.push(i);
+		}
+		FindValueLength(values);
+	}
+	//Promise that will get the string, and find the one
+	let FindOnes = new Promise((oneIndex, value, resolve) => {
+		
+		switch(value[oneIndex])
+		{
+			case "0":
+			resolve("Zero");
+			break;
+			case "1":
+			resolve("One");
+			break;
+			case "2":
+			resolve("Two");
+			break;
+			case "3":
+			resolve("Three");
+			break;
+			case "4":
+			resolve("Four");
+			break;
+			case "5":
+			resolve("Five");
+			break;
+			case "6":
+			resolve("Six");
+			break;
+			case "7":
+			resolve("Seven");
+			break;
+			case "8":
+			resolve("Eight");
+			break;
+			case "9":
+			resolve("Nine");
+			break;
+		}
+	})
+	function FindValueLength(_values)
+	{ 
+		console.log("Made it to FindValueLength");
+		let names = [];
+		_values.forEach((currentValue)=> {
 
+			let int = _values[currentValue];
+			let str = int.toString();
+			switch (str.length)
+			{
+				case  1:
+				console.log(int + "has a length of " + str.length);
+				FindOnes(0, _values);
+				FindOnes.then((result) => {
+					names.push(result);
+				})
+				break;
+				case  2:
+				console.log(int + "has a length of " + str.length);
+
+				break;
+				case  3:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  4:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  5:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  6:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  7:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  8:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  9:
+				console.log(int + "has a length of " + str.length);
+				break;
+				case  10:
+				console.log(int + "has a length of " + str.length);
+				break;
+			}
+		})
+	}
+
+</script>
 </body>
 </html>
