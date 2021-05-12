@@ -19,43 +19,7 @@
 		}
 		FindValueLength(values);
 	}
-	//Promise that will get the string, and find the one
-	let FindOnes = new Promise((oneIndex, value, resolve) => {
-		
-		switch(value[oneIndex])
-		{
-			case "0":
-			resolve("Zero");
-			break;
-			case "1":
-			resolve("One");
-			break;
-			case "2":
-			resolve("Two");
-			break;
-			case "3":
-			resolve("Three");
-			break;
-			case "4":
-			resolve("Four");
-			break;
-			case "5":
-			resolve("Five");
-			break;
-			case "6":
-			resolve("Six");
-			break;
-			case "7":
-			resolve("Seven");
-			break;
-			case "8":
-			resolve("Eight");
-			break;
-			case "9":
-			resolve("Nine");
-			break;
-		}
-	})
+	
 	function FindValueLength(_values)
 	{ 
 		console.log("Made it to FindValueLength");
@@ -67,44 +31,88 @@
 			switch (str.length)
 			{
 				case  1:
-				console.log(int + "has a length of " + str.length);
-				FindOnes(0, _values);
-				FindOnes.then((result) => {
-					names.push(result);
-				})
+				//console.log(int + "has a length of " + str.length);
+				let One = FindOnes(0, int);
+				console.log(One);
+				document.getElementById("Replace").innerHTML = One;
 				break;
 				case  2:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 
 				break;
 				case  3:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  4:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  5:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  6:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  7:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  8:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  9:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 				case  10:
-				console.log(int + "has a length of " + str.length);
+				//console.log(int + "has a length of " + str.length);
 				break;
 			}
 		})
 	}
-
+FindOnes = (oneIndex, value) => {
+		let NameOfOne = "";
+		switch(value[oneIndex])
+		{
+			case 0:
+			console.log("Made it to a console.log in the switch statement");
+			 NameOfOne += "Zero";
+			break;
+			case "1":
+			 NameOfOne += "One";
+			break;
+			case 2:
+			console.log("Made it to a console.log in the switch statement");
+			 NameOfOne += "Two";
+			break;
+			case 3:
+			console.log("Made it to a console.log in the switch statement");
+			NameOfOne += "Three";
+			break;
+			case 4:
+			console.log("Made it to a console.log in the switch statement");
+			NameOfOne += "Four";
+			break;
+			case 5:
+			console.log("Made it to a console.log in the switch statement");
+			NameOfOne += "Five";
+			break;
+			case 6:
+			console.log("Made it to a console.log in the switch statement");
+			 NameOfOne += "Six";
+			break;
+			case 7:
+			console.log("Made it to a console.log in the switch statement");
+			NameOfOne += "Seven";
+			break;
+			case 8:
+			console.log("Made it to a console.log in the switch statement");
+			NameOfOne += "Eight";
+			break;
+			case 9:
+			console.log("Made it to a console.log in the switch statement");
+			NameOfOne += "Nine";
+			break;
+		}
+		return NameOfOne;
+	}
 </script>
 </body>
 </html>
