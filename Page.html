@@ -58,6 +58,21 @@
 						}
 					break;
 					case  3:
+					const Threes = await FindThrees(0, str);
+					const ThreesTwo = await FindTwos(0, str);
+						if (ThreesTwo === "Teen")
+						{
+							let ThreesOneTeen = await FindOnes(1, str, true);
+							//console.log(Threes, ThreesTwo, ThreesOneTeen);
+							let ThreeTeentext = Threes + ThreesOneTeen;
+							document.getElementById("Replace").innerHTML += ThreeTeentext;
+						}
+						else { //Its not a teen number
+							let ThreesOne = await FindOnes(1, str, false);
+							console.log(Threes, ThreesTwo, ThreesOne);
+							let Threestext = Threes + ThreesTwo + ThreesOne;
+							document.getElementById("Replace").innerHTML += Threestext;
+						}
 					//console.log(int + "has a length of " + str.length);
 					break;
 					case  4:
@@ -197,7 +212,7 @@ function FindOnes (oneIndex, value, teens) {
 		switch(value[twoIndex])
 		{
 			case "0":
-			 NameOfTwo += "";
+			 NameOfTwo += "Two === 0";
 			break;
 			case "1":
 			 NameOfTwo += "Teen"; //in the return, check if this is a teen and make re order the numbers correctly
@@ -228,6 +243,44 @@ function FindOnes (oneIndex, value, teens) {
 			break;
 		}
 		return NameOfTwo;
+	}
+	//This is the hundreds
+	function FindThrees (threeIndex, value) {
+		let NameOfThree = "";
+		switch(value[threeIndex])
+		{
+			case "0":
+			 NameOfThree += "Three === 0";
+			break;
+			case "1":
+			 NameOfThree += "One Hundred"; //in the return, check if this is a teen and make re order the numbers correctly
+			break;
+			case "2":
+			 NameOfThree += "Two Hundred ";
+			break;
+			case "3":
+			NameOfThree += "Three Hundred";
+			break;
+			case "4":
+			NameOfThree += "Four Hundred";
+			break;
+			case "5":
+			NameOfThree += "Five Hundred";
+			break;
+			case "6":
+			 NameOfThree += "Six Hundred";
+			break;
+			case "7":
+			NameOfThree += "Seven Hundred";
+			break;
+			case "8":
+			NameOfThree += "Eight Hundred";
+			break;
+			case "9":
+			NameOfThree += "Nine Hundred";
+			break;
+		}
+		return NameOfThree;
 	}
 </script>
 </body>
