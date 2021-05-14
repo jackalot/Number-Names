@@ -6,7 +6,7 @@
 <body>
 <input type="text" id="limiter" value="Amount of number names"> </input>
 <button class="Send" onclick="GetSize()">Send Number number names</button>
-<p id= "Replace" > text </p>
+<p id= "Replace" > Names: </p>
 <script type="text/javascript">
 	function GetSize()
 	{
@@ -20,98 +20,214 @@
 		FindValueLength(values);
 	}
 	
-	function FindValueLength(_values)
+	async function FindValueLength(_values)
 	{ 
 		console.log("Made it to FindValueLength");
 		let names = [];
-		_values.forEach((currentValue)=> {
+		for(let i = 0; i < _values.length; i++)
+		{
 
-			let int = _values[currentValue];
+			let int = _values[i];
 			let str = int.toString();
-			switch (str.length)
+			for (let k = 0; k < str.length; k++)
 			{
-				case  1:
-				//console.log(int + "has a length of " + str.length);
-				let One = FindOnes(0, int);
-				console.log(One);
-				document.getElementById("Replace").innerHTML = One;
-				break;
-				case  2:
-				//console.log(int + "has a length of " + str.length);
-
-				break;
-				case  3:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  4:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  5:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  6:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  7:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  8:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  9:
-				//console.log(int + "has a length of " + str.length);
-				break;
-				case  10:
-				//console.log(int + "has a length of " + str.length);
-				break;
+				
+			
+				switch (str.length)
+				{
+					case  1:
+					//console.log(int + "has a length of " + str.length);
+					const One = await FindOnes(0, str, false);
+					console.log(One);
+					document.getElementById("Replace").innerHTML += One;
+					break;
+					case  2:
+					//console.log(int + "has a length of " + str.length);
+					const Two = await FindTwos(0, str);
+						if (Two === "Teen")
+						{
+							let twosOne = await FindOnes(1, str, true);
+							console.log(Two, twosOne);
+							document.getElementById("Replace").innerHTML += twosOne;
+						}
+						else { //Its not a teen number
+							let twosOne = await FindOnes(1, str, false);
+							console.log(Two, twosOne);
+							let Twostext = Two + twosOne;
+							document.getElementById("Replace").innerHTML += Twostext;
+						}
+					break;
+					case  3:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  4:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  5:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  6:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  7:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  8:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  9:
+					//console.log(int + "has a length of " + str.length);
+					break;
+					case  10:
+					//console.log(int + "has a length of " + str.length);
+					break;
+				}
 			}
-		})
+		}
 	}
-FindOnes = (oneIndex, value) => {
+function FindOnes (oneIndex, value, teens) {
 		let NameOfOne = "";
 		switch(value[oneIndex])
 		{
-			case 0:
-			console.log("Made it to a console.log in the switch statement");
-			 NameOfOne += "Zero";
+			case "0":
+			if(teens === false)
+			{
+			 NameOfOne += "Zero, ";
+			}
+			else
+			{
+			 NameOfOne += "Ten, "; //Turn this into the Teens version	
+			}
 			break;
 			case "1":
-			 NameOfOne += "One";
+			if(teens === false)
+			{
+			 NameOfOne += "One, ";
+			}
+			else
+			{
+			 NameOfOne += "Eleven, "; //Turn this into the Teens version	
+			}
 			break;
-			case 2:
-			console.log("Made it to a console.log in the switch statement");
-			 NameOfOne += "Two";
+			case "2":
+			if(teens === false)
+			{
+			 NameOfOne += "Two, ";
+			}
+			else
+			{
+			 NameOfOne += "Twelve, "; //Turn this into the Teens version	
+			}
 			break;
-			case 3:
-			console.log("Made it to a console.log in the switch statement");
-			NameOfOne += "Three";
+			case "3":
+			if(teens === false)
+			{
+			NameOfOne += "Three, ";
+			}
+			else
+			{
+			NameOfOne += "Thirteen, "; //Turn this into the Teens version	
+			}
 			break;
-			case 4:
-			console.log("Made it to a console.log in the switch statement");
-			NameOfOne += "Four";
+			case "4":
+			if(teens === false)
+			{
+			NameOfOne += "Four, ";
+			}
+			else
+			{
+			NameOfOne += "FourTeen, "; //Turn this into the Teens version	
+			}
 			break;
-			case 5:
-			console.log("Made it to a console.log in the switch statement");
-			NameOfOne += "Five";
+			case "5":
+			if(teens === false)
+			{
+			NameOfOne += "Five, ";
+			}
+			else
+			{
+			NameOfOne += "Fifteen, "; //Turn this into the Teens version	
+			}
 			break;
-			case 6:
-			console.log("Made it to a console.log in the switch statement");
-			 NameOfOne += "Six";
+			case "6":
+			if(teens === false)
+			{
+			 NameOfOne += "Six, ";
+			}
+			else
+			{
+			 NameOfOne += "Sixteen, "; //Turn this into the Teens version	
+			}
 			break;
-			case 7:
-			console.log("Made it to a console.log in the switch statement");
-			NameOfOne += "Seven";
+			case "7":
+			if(teens === false)
+			{
+			NameOfOne += "Seven, ";
+			}
+			else
+			{
+			NameOfOne += "Seventeen, "; //Turn this into the Teens version	
+			}
 			break;
-			case 8:
-			console.log("Made it to a console.log in the switch statement");
-			NameOfOne += "Eight";
+			case "8":
+			if(teens === false)
+			{
+			NameOfOne += "Eight, ";
+			}
+			else
+			{
+			NameOfOne += "Eighteen, "; //Turn this into the Teens version	
+			}
 			break;
-			case 9:
-			console.log("Made it to a console.log in the switch statement");
-			NameOfOne += "Nine";
+			case "9":
+			if(teens === false)
+			{
+			NameOfOne += "Nine, ";
+			}
+			else
+			{
+			NameOfOne += "Nineteen, "; //Turn this into the Teens version	
+			}
 			break;
 		}
 		return NameOfOne;
+	}
+	function FindTwos (twoIndex, value) {
+		let NameOfTwo = "";
+		switch(value[twoIndex])
+		{
+			case "0":
+			 NameOfTwo += "";
+			break;
+			case "1":
+			 NameOfTwo += "Teen"; //in the return, check if this is a teen and make re order the numbers correctly
+			break;
+			case "2":
+			 NameOfTwo += "Twenty";
+			break;
+			case "3":
+			NameOfTwo += "Thirty";
+			break;
+			case "4":
+			NameOfTwo += "Fourty";
+			break;
+			case "5":
+			NameOfTwo += "Fifty";
+			break;
+			case "6":
+			 NameOfTwo += "Sixty";
+			break;
+			case "7":
+			NameOfTwo += "Seventy";
+			break;
+			case "8":
+			NameOfTwo += "Eighty";
+			break;
+			case "9":
+			NameOfTwo += "Ninety";
+			break;
+		}
+		return NameOfTwo;
 	}
 </script>
 </body>
