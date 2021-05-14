@@ -46,13 +46,13 @@
 					const Two = await FindTwos(0, str);
 						if (Two === "Teen")
 						{
-							let twosOne = await FindOnes(1, str, true);
-							console.log(Two, twosOne);
-							document.getElementById("Replace").innerHTML += twosOne;
+							let twosOneTeen = await FindOnes(1, str, true);
+							//console.log(Two, twosOne);
+							document.getElementById("Replace").innerHTML += twosOneTeen;
 						}
 						else { //Its not a teen number
 							let twosOne = await FindOnes(1, str, false);
-							console.log(Two, twosOne);
+							//console.log(Two, twosOne);
 							let Twostext = Two + twosOne;
 							document.getElementById("Replace").innerHTML += Twostext;
 						}
